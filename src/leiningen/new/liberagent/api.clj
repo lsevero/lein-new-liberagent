@@ -6,7 +6,7 @@
      [ring.middleware.params :refer (wrap-params)]
      [ring.middleware.edn :refer (wrap-edn-params)]
      [ring.util.response :refer (redirect)]
-     [cemerick.piggieback :as piggieback]
+     [cider.piggieback :as piggieback]
      [weasel.repl.websocket :as weasel]
      [environ.core :refer [env]]))
 
@@ -34,8 +34,3 @@
   (-> routes
       wrap-params
       wrap-edn-params))
-
-(defn brepl []
-  (piggieback/cljs-repl
-   :repl-env
-   (weasel/repl-env :ip "0.0.0.0" :port 9001)))

@@ -5,14 +5,13 @@ Compojure+Liberator on the server.
 
 ## Dependencies and plugins for app
 
-* clojure 1.6.0
+* clojure 1.8.0
 * clojurescript + lein cljsbuild
 * core.async
 * ring-core + lein ring
 * ring-jetty-adapter
 * compojure
 * liberator
-* React 0.11.2
 * Bootstrap 3.2.0
 * cljs-http
 * reagent
@@ -31,14 +30,6 @@ lein new liberagent example
 In one terminal:
 
 ```
-$ cd example
-$ lein repl
-example.api=> (brepl) ;; starts browser repl
-```
-
-In a second terminal:
-
-```
 cd example
 lein figwheel
 ```
@@ -49,7 +40,7 @@ browser. Also see
 [this](http://blog.michielborkent.nl/blog/2014/09/25/figwheel-keep-Om-turning/)
 blog post.
 
-In a third terminal:
+In a second terminal:
 
 ```
 cd example
@@ -61,11 +52,18 @@ http://localhost:8090/index.html.
 
 Changes to Clojure (.clj) code will automatically be compiled upon
 browser request.
+The browser should connect to the figwheel repl automatically, if it do not happen try refreshing your browser.
 
 In the browser repl type for example:
 
 ```
 (.click (js/$ "#myButton"))
+```
+
+or even
+
+```
+(js/alert "Hello!")
 ```
 
 You are now controlling the client from a REPL!
@@ -77,6 +75,11 @@ Use normal `lein cljsbuild` +
 ```
 IS_DEV=false lein ring server
 ```
+
+## Deploying
+
+Deploying your web server should be pretty easy using the command `lein ring uberwar`, then run your `.war` file in a Servlet Container like Apache Tomcat.
+Some online web hosting platforms like Heroku already provides a interface to upload and run `.war` files directly.
 
 ## Credits
 

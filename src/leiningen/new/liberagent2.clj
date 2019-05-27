@@ -1,9 +1,9 @@
-(ns leiningen.new.liberagent
+(ns leiningen.new.liberagent2
   (:use [leiningen.new.templates :only [renderer name-to-path sanitize-ns ->files]]))
 
-(def render (renderer "liberagent"))
+(def render (renderer "liberagent2"))
 
-(defn liberagent
+(defn liberagent2
   [name]
   (let [data {:name name
               :ns-name (sanitize-ns name)
